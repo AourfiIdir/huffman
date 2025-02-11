@@ -55,11 +55,11 @@ void minHeapify(struct MinHeap* minHeap, int idx) {
         minHeapify(minHeap, smallest);
     }
 }
-//if the size if one we finished the creation of the tree
+//if the size is one, we finished the creation of the tree
 int isSizeOne(struct MinHeap* minHeap) {
     return (minHeap->size == 1);
 }
-//get the min freq node in the array and then delete it from it(eventually replace it with the last elment and call minheapify)
+//get the min freq node in the array and then delete it from it(eventually replace it with the last element and call minheapify)
 struct MinHeapNode* extractMin(struct MinHeap* minHeap) {
     struct MinHeapNode* temp = minHeap->array[0];
     minHeap->array[0] = minHeap->array[minHeap->size - 1];
@@ -67,7 +67,7 @@ struct MinHeapNode* extractMin(struct MinHeap* minHeap) {
     minHeapify(minHeap, 0);
     return temp;
 }
-//this insures thae heap tree (bottom to top)
+//this ensures that the heap tree (bottom to top)
 void insertMinHeap(struct MinHeap* minHeap, struct MinHeapNode* minHeapNode) {
     ++minHeap->size;
     int i = minHeap->size - 1;
@@ -124,9 +124,9 @@ void HuffmanCodes(char data[], int freq[], int size) {
         minHeap->array[i] = newNode(data[i], freq[i]);
 
     minHeap->size = size;
-    //after inserting everything it reorder the array so it becomes a heaptree:/
+    //after inserting everything it reorders the array so it becomes a heap tree:/
     buildMinHeap(minHeap);
-    //creatng the tree
+    //creating the tree
     while (!isSizeOne(minHeap)) {
         left = extractMin(minHeap);
         right = extractMin(minHeap);
@@ -140,10 +140,10 @@ void HuffmanCodes(char data[], int freq[], int size) {
 }
 
 int main() {
-    //you can a function to let the use select the array 
+    //you can use a function to let the user select the array 
     //or make it more advanced by using files directly :/
-    char arr[] = {'a', 'b', 'c', 'd', 'e'};//you can write a fucntion that return all the caracters used
-    int freq[] = {5, 9, 12, 13, 16};//you can write a function that extract the freq on a file
+    char arr[] = {'a', 'b', 'c', 'd', 'e'};//you can write a function that returns all the characters used
+    int freq[] = {5, 9, 12, 13, 16};//you can write a function that extracts the freq on a file
     int size = sizeof(arr) / sizeof(arr[0]);
     HuffmanCodes(arr, freq, size);
     return 0;
