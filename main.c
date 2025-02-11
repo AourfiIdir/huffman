@@ -148,3 +148,9 @@ int main() {
     HuffmanCodes(arr, freq, size);
     return 0;
 }
+
+//what to do:
+//manage inserting files
+//function to extract the characters from the file to an array
+//function to calculate the frecuency of the letters
+//program to go from the encrypted file to the normal
